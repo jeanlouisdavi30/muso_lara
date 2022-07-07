@@ -1,0 +1,343 @@
+@extends('tmp.muso')
+
+@section('content')
+
+<?php 
+
+    if(Request::route()->getName() === 'transfert-cv'){
+         $liste_transfert="active";
+     }elseif(Request::route()->getName() === 'nouveau-transfert'){
+        $transfert="active";
+     }elseif(Request::route()->getName() === 'voir-transfert-cv'){
+          $voirtransfer="active";
+     }
+ 
+?>
+<?php $info = DB::table('musos')->where('users_id',Auth::user()->id)->first();  $id_musos = $info->id; ?>
+
+
+<!-- Main content -->
+<section class="content">
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="alert  alert-dismissible col-md-7">
+                    <h2>
+                        Tranferts Caisse Verte </h2>
+                </div>
+
+                <div class="card">
+
+                    <div class="card-header p-2">
+
+                        <ul class="nav nav-pills">
+
+                            <li class="nav-item"><a
+                                    class="nav-link <?php if(isset($liste_transfert)){ echo $liste_transfert;} ?>"
+                                    href="#liste_transfert" data-toggle="tab">Transferts Sortons
+                                </a>
+                            </li>
+							
+							<li class="nav-item"><a
+                                    class="nav-link <?php if(isset($tranfert_entrants)){ echo $tranfert_entrants;} ?>"
+                                    href="#tranfert_entrants" data-toggle="tab">Transferts Entrants
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link <?php if(isset($transfert)){ echo $transfert;}?>"
+                                    href="{{ url('nouveau-transfert') }}">Nouveau Tranferts
+                                </a>
+                            </li>
+							
+							
+                            <?php if(isset($voirtransfer)) {?>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if(isset($voirtransfer)){ echo $voirtransfer;}?>"
+                                    href="#voirtransfer" data-toggle="tab"> Voir Transfert
+                                </a>
+                            </li>
+                            <?php }?>
+
+                        </ul>
+
+                    </div><!-- /.card-header -->
+
+
+                    <div class="card-body">
+
+                        <div class="tab-content">
+
+
+                            <div class="<?php if(isset($transfert)){ echo $transfert;} ?> tab-pane" id="transfert">
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        @if (session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                        @endif
+
+
+                                        <!-- /.card-header -->
+                                        <form method="post" action="{{ route('save-transfert') }}">
+                                            @csrf
+
+
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Date</label>
+                                                <input type="date" name="date_entre" class="form-control"
+                                                    id="exampleInputEmail1" placeholder="">
+                                                @error('date_entre')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Titre</label>
+                                                <input type="text" name="titre" class="form-control"
+                                                    id="exampleInputEmail1" placeholder="titre">
+                                                @error('titre')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Montant</label>
+                                                <input type="text" name="montant" class="form-control"
+                                                    id="exampleInputEmail1" placeholder="montant">
+                                                @error('montant')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Caisse</label>
+                                                <input type="hidden" name="caisse" class="form-control"
+                                                    id="exampleInputEmail1" value="Caisse-vert">
+
+                                                <select name="transfer_caisse" class="form-control">
+                                                    <option value=""> Selectionner Caisse </option>
+                                                    <option value="Caisse-bleue"> Caisse Bleue </option>
+                                                    <option value="Caisse-rouge"> Caisse Rouge</option>
+                                                </select>
+                                                @error('transfer_caisse')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Detail</label>
+                                                <textarea class="form-control" name="detail"></textarea>
+                                                @error('detail')
+                                                <p class="text-danger">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+         <div class="<?php if(isset($liste_transfert)){ echo $liste_transfert;}?> tab-pane"
+                                id="liste_transfert">
+
+
+                                <div class="card-body">
+
+                                    <table class="table table-bordered table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Titre</th>
+                                                <th>Montant</th>
+                                                <th>Transfert de caisse</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(isset($transfer))
+                                            @foreach($transfer as $k)
+
+                                            <tr>
+
+                                                <td>
+                                                    <?php  $date = new DateTime($k->date_entre);  echo $date->format('d-M-Y'); ?>
+                                                </td>
+                                                <td>{{$k->titre}}</td>
+                                                <td>{{$k->montant}} {{ $settings->curency }}</td>
+                                                <td>{{$k->transfer_caisse}}</td>
+
+                                                <td>
+                                                    <a class="btn btn-info btn-sm"
+                                                        href="{{ url('voir-transfert-cv')}}/{{ $k->id}}"> <i
+                                                            class="fas fas fa-folder"></i> Voir</a>
+                                                </td>
+
+                                            </tr>
+
+                                            @endforeach
+                                            @endif
+                                            </br>
+
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            </div>
+							
+                           
+							
+							
+							                            <div class="<?php if(isset($tranfert_entrants)){ echo $tranfert_entrants;}?> tab-pane"
+                                id="tranfert_entrants">
+
+
+                                <div class="card-body">
+
+                                    <table class="table table-bordered table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Titre</th>
+                                                <th>Montant</th>
+                                                <th>Caisse</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(isset($transfer_entrants))
+                                            @foreach($transfer_entrants as $k)
+
+                                            <tr>
+
+                                                <td>
+                                                    <?php  $date = new DateTime($k->date_entre);  echo $date->format('d-M-Y'); ?>
+                                                </td>
+                                                <td>{{$k->titre}}</td>
+                                                <td>{{$k->montant}} {{ $settings->curency }}</td>
+                                                <td>{{$k->transfer_caisse}}</td>
+                                                <td>{{$k->detail}}</td>
+
+                                            </tr>
+
+                                            @endforeach
+                                            @endif
+                                            </br>
+
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <div class="<?php if(isset($voirtransfer)){ echo $voirtransfer;} ?> tab-pane"
+                                id="voirtransfer">
+
+                                <div class="card-body">
+                                    <div class="post clearfix">
+                                        <?php if(!empty($transfer_id)){?>
+                                        <div class="row">
+
+                                            <div class="col-md-8">
+                                                <ul class="list-group list-group-unbordered mb-4 ">
+
+                                                    <li class="list-group-item">
+                                                        <b>Titre</b> <a class="float-right">{{$transfer_id->titre}}</a>
+                                                    </li>
+
+                                                    <li class="list-group-item">
+                                                        <b>Montant</b> <a class="float-right">{{$transfer_id->montant}}
+                                                            {{$settings->curency}}</a>
+                                                    </li>
+
+                                                    <li class="list-group-item">
+                                                        <b>Date decaissement</b> <a
+                                                            class="float-right"><?php  $date = new DateTime($transfer_id->date_entre);  echo $date->format('d-M-Y'); ?></a>
+                                                    </li>
+
+                                                    <li class="list-group-item">
+                                                        <b>Transfert de caisse</b> <a
+                                                            class="float-right">{{$transfer_id->transfer_caisse}}</a>
+                                                    </li>
+
+
+                                                    <li class="list-group-item">
+                                                        <b>Detail de transfert</b> <a
+                                                            class="float-right">{{$transfer_id->detail}}</a>
+                                                    </li>
+
+                                            </div>
+
+
+
+
+
+
+                                        </div>
+                                        <?php if (!empty($autorisation)){ $autorisation = "valide"; }else{ $autorisation = "no-valise";}?>
+                                        <x-autorisation type="delete-transfert" :autorisation="$autorisation"
+                                            :id="$transfer_id->id" />
+
+                                        <?php } ?>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script type="text/javascript">
+var ele = document.getElementsByClassName('chk');
+for (var i = 0; i < ele.length; i++) {
+    if (ele[i].type == 'checkbox')
+        ele[i].checked = true;
+}
+
+
+function deSelect() {
+    var ele = document.getElementsByName('chk');
+    for (var i = 0; i < ele.length; i++) {
+        if (ele[i].type == 'checkbox')
+            ele[i].checked = false;
+
+    }
+}
+</script>
+
+@endsection

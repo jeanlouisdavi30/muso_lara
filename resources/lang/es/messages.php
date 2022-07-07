@@ -1,0 +1,241 @@
+<?php
+return [
+
+		"langue"=>"Lengua",
+		"cb"=>"Caja Azul",
+		"cv"=>"Caja Verde",
+		"cr"=>"Caja Roja",
+		"connex"=>"Cerrar sesión",
+		"membres"=>"Miembros",
+		"ajt_m"=>"Miembro",
+		"les_m"=>"Los miembros",
+		"parametrer"=>"Configurar",
+		"rencontres"=>"Reunión",
+		"decisions"=>"Decisión",
+		"cotisation"=>"Contribución",
+		"contribution"=>"Contribución",
+		"depense"=>"Gastos",
+		"transfert"=>"transferencia",
+		"sorties"=>"Emplear",
+		"partenaires"=>"Financiadores",
+		"transferts"=>"transferencias",
+		"pret"=>"Préstamo",
+		"dpret"=>"Solicitud de préstamo",
+		"decaissement"=>"Desembolso",
+		"rapport"=>"Reporte",
+
+		"dashboard"=>"Tablero",
+		"configuration"=>"Configuración",
+		"identification"=>"Identificación",
+		"decision"=>"Decisión",
+		"profil"=>"Perfile",
+		"mdp"=>"contraseña",
+		"adresse"=>"Dirección",
+		"autorisation"=>"autorización",
+		"caisses"=>"Cajas",
+		"reglements"=>"regulaciones",
+
+
+		"nommutuel"=>"Nombre del Mutual",
+		"representant"=>"El representante",
+		"telephone"=>"Teléfono",
+		"datecreation"=>"Fecha de creación",
+		"pays"=>"País",
+		"reseaux"=>"Redes",
+
+		"presentation"=>"Presentación",
+		"mission"=>"Asignación",
+		"vision"=>"Visión",
+		"valeurs"=>"Valores",
+		"profil"=>"Perfile ",
+
+		"devise"=>"divisa",
+		"idreunion"=>"Intervalo de reunion",
+		"mcotisationcv"=>"Monto de la contribución CV	",
+		"mcotisationcr"=>"monto de la contribución CR	",
+		"langue"=>"Langua",
+		"pcomite"=>"presidente del comité",
+		"scomite"=>"secretario del comité",
+		"tcomite"=>"Tesorero del comité",
+		"modifier"=>"actualizar",
+		"configuration"=>"configuración",
+
+		"mdepass"=>"contraseña actual",
+		"nouvopass"=>"Nueva contraseña",
+		"confirmpass"=>"confirmar nueva contraseña",
+		"changepass"=>"Cambiar la contraseña",
+		"password"=>"Contraseña ",
+
+
+		"ville"=>"Ciudad",
+		"arrondissement"=>"Condado",
+		"departement"=>"Estado",
+
+		"rencontres"=>"Reuniones",
+		"date_rencontre"=>"Fecha de la reunión",
+		"recherche"=>"Búsqueda",
+		"ajt_rencontre"=>"Añadir una reunión",
+		"enregistrer"=>"registrarse",
+		"titre"=>"Título",
+		"membres"=>"Miembros",
+
+		"pmembre"=>"Perfil del miembro",
+		"minfo"=>"Editar información",
+		"m_pass"=>"Modificar la contraseña",
+		"photo"=>"Foto",
+		"ch_photo"=>"Elige foto",
+		"prenom"=>"Prenombre",
+		"nom"=>"apellido",
+		"sexe"=>"Sexo",
+		"d_naissance"=>"Fecha de nacimiento",
+		"info_p"=>"Informacion personal",
+		"identite"=>"IDENTIFICACIÓN",
+		"mantrimonial"=>"Estado civil ",
+		"fonction"=>"rol",
+		"voir"=>"Ver",
+		"avant"=>"Previo",
+		"suivant"=>"Próximo",
+		"suprimer"=>"Eliminar",
+		"transaction"=>"Transacción",
+		"Duree"=>"Duración",
+		"montant"=>"Monto",
+
+
+		"btn_enregistrer"=>"Registrarse",
+		"btn_modifier"=>"Editar",
+		"btn_supprimer"=>"Borrar",
+
+		"btn_ferme"=>"Granja",
+		"info"=>"Identificación",
+		"retour"=>"Devolver",
+		"date"=>"Fecha",
+
+		"l_rencontre"=>"Reunión de lista",
+		"ajt_decision"=>"Anadir una Decisión",
+		"list_decision"=>"Enumere las decisiones",
+
+		"Icv"=>"Inicializar Caja Verde",
+		"Icr"=>"Inicializar Caja Roja",
+		"Icb"=>"Inicializar Caja azul",
+
+		"ccv"=>"Contribución del caja verde",
+		"ccr"=>"Contribución Caja Roja",
+
+		"p_paiement"=>"Realizar un pago",
+		"d_paiements"=>"Fecha de pago",
+		"t_paiement"=>"Todos los pagos",
+		"les_depense"=>"gastos",
+		"description"=>"Descripción",
+		"autre_d"=>"Otro detalle",
+		"Benéficiaire"=>"Beneficiario",
+		"Ajouter_d"=>"Agregar gasto",
+
+		"paiement"=>"Pago",
+
+		"affic_paiement"=>"Mostrar pagos",
+		"atpieces"=>"Adjuntos adjuntos",
+		"trubrique"=>"Tipo / Título",
+		"rubrique"=>"Título",
+		"Sortons"=>"salgamos",
+		"Entrants"=>"Participantes",
+
+
+		"selectionner"=>"Seleccione",
+
+
+		"ajt_sorti"=>"Agregar salida",
+		"ales_sorti"=>"Las salidas",
+
+		"nos_p"=>"Financiadores",
+		"nouv_p"=>"Nuevo Financiadores",
+
+
+		"ls_dons"=>"Donaciones",
+		"n_dons"=>"Nuevo regalo",
+		"emprunts"=>"Préstamos",
+		"n_Emprunts"=>"Nuevo préstamo",
+
+		"chek"=>"Cheque y número de banco",
+		"interet"=>"interés",
+
+
+		"principal_m"=>"Principal Mensual",
+		"inter_m"=>"Interés Mensual",
+		"total_m"=>"Total mensual",
+		"montant_t_du"=>"Importe total adeudado",
+		"frais"=>"Costos",
+		"desc_pret"=>"Descripción del Préstamo",
+
+		"remboursement"=>"Reembolso",
+		"fiche_em"=>"formulario de prestamo",
+		"echeance"=>"plazo",
+		"date_echeance"=>"Fecha de vencimiento",
+		"nombre_mois"=>"Número de meses",
+		"taux_interets"=>"Tasas de interés",
+		"total_iner"=>"Total intereses",
+		"total_rem"=>"Total a reembolsar",
+		"total"=>"Total",
+		"balance_ver"=>"Saldo de sobrepago",
+		"balance_tot"=>"Saldo Total préstamo",
+		"date_a_pa"=>"Fecha para pagar",
+		"statut"=>"Estado",
+
+		"partenaire"=>"Pareja",
+		"kontra"=>"Agregar cheque & contrato",
+
+		"d_auteurs"=>"Derechos de autor",
+		"d_reserve"=>"Reservados todos los derechos",
+
+		"pret_dec"=>"Préstamo a desembolso",
+		"Decaisser"=>"Desembolsar",
+		"pret_en"=>"Préstamo en curso",
+		"membre"=>"Miembro",
+
+		"l_demande"=>"Lista de solicitudes",
+		"v_demande"=>"Ver Solicitud",
+		"n_demande"=>"Nueva solicitud",
+		"Comite"=>"Comité",
+		"mod_demnade"=>"Modificar solicitud",
+		"apr_pret"=>"Aprobar préstamo",
+		"echéancier"=>"Cronología",
+		"voir_co"=>"ver comité",
+		
+		"approuver"=>"Aprobar",
+		"rejeter"=>"Despedir",
+		"attente"=>"A la espera",
+		"supprimer"=>"Eliminar",
+		"env_comite"=>"Enviar a Comité",
+		"utilisation"=>"Usar",
+		"caisse"=>"Caja",
+
+		"int_p"=>"pago de intereses",
+		"prin_p"=>"Pago principal",
+		"balance_v"=>"Saldo de sobrepago",
+		"balance_t_p"=>"Saldo Total préstamo",
+		"montant_p"=>"Cantidad total pagada",
+		"envoyer"=>"Enviar a",
+		"somme"=>"Suma",
+		
+				
+		"autorisation"=>"Permiso",
+		"alert"=>"Alerta",
+		"info_autorisation"=>" Vosotras necesita agregar una persona a tener acceso para eliminar ",
+
+
+		"p_verbal"=>"Acta",
+		"ch_f"=>"Elija el archivo",
+		"telecharge"=>"Descargar el fichero",
+		"text_poces"=>"El acta de la reunión",
+		"ajouter"=>"Agregar",
+		"vote"=>"Votar",
+		"sauvegarde"=>"Respaldo",
+		"error_rencontre"=>"Agregar miembros para reunirse.",
+		"current"=>"Su contraseña actual no coincide con la contraseña.",
+		"new_pass"=>"La nueva contraseña no puede ser igual a su contraseña actual.",
+		"pass_save"=>"¡Contraseña cambiada correctamente!",
+		"caise_modifier"=>"Edición de pago exitosa",
+"erreur_remboursement"=>"No tienes suficiente dinero para pagar la deuda",
+
+		
+		
+];
